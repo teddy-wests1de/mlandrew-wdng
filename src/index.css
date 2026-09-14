@@ -650,11 +650,11 @@ p {
   max-width: 700px;
 
   /* margin: 2.5rem auto 0; */
-  padding: 0.5rem;
+  padding: 0.2rem;
 
   background: var(--accent);
 
-  border-radius: .5rem;
+  border-radius: .25rem;
 }
 
 .countdown-title {
@@ -695,8 +695,42 @@ p {
   text-transform: uppercase;
 }
 
-.scroll-indicator { width: 42px; height: 42px; margin: .75rem auto 0; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(91, 120, 163, 0.35); border-radius: 50%; background: transparent; color: var(--accent); cursor: pointer; animation: floating-arrow 2s ease-in-out infinite; transition: background 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease; } .scroll-indicator:hover { background: var(--accent); color: white; border-color: var(--accent); } .scroll-arrow { font-size: 1.1rem; line-height: 1; transform: translateY(-1px); } @keyframes floating-arrow { 0% { transform: translateY(0); } 50% { transform: translateY(6px); } 100% { transform: translateY(0); } }
+.scroll-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  width: 52px;
+  height: 52px;
+
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
+  border-radius: 50%;
+
+  background: var(--surface);
+  border-color: var(--accent);
+
+  color: var(--accent);
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.scroll-down:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent);
+
+  transform: translateY(4px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-down svg {
+  width: 22px;
+  height: 22px;
+
+  color: var(--accent);
+  stroke-width: 2.5;
+}
 /* ==================================================
    STORY PREVIEW
 ================================================== */
@@ -1065,6 +1099,62 @@ footer {
   
   text-align: center;
 }
+
+/* ==================================================
+   BACK TO TOP BUTTON
+================================================== */
+.back-to-top {
+  position: fixed;
+  right: .5rem;
+  bottom: 1.5rem;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+
+  z-index: 1000;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+
+.back-to-top:hover {
+  background: rgb(from var(--accent-dark) r g b / 80%);
+  border-color: var(--accent-color);
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-top svg {
+  width: 22px;
+  height: 22px;
+
+  stroke: #ffffff;
+  stroke-width: 2.5;
+}
+
 
 footer .logo {
   margin-bottom: 12px;
