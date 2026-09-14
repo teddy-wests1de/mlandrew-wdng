@@ -513,7 +513,7 @@ h1 {
 h2 {
   margin: 0 0 10px;
 
-  font-family: var(--heading);
+  font-family: var(--script);
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 400;
   line-height: 1.15;
@@ -911,12 +911,12 @@ button.btn {
   align-items: center;
   justify-content: center;
 
-  min-height: 44px;
+  min-height: 40px;
 
-  padding: 10px 24px;
+  padding: 8px 24px;
 
   border: 1px solid var(--accent);
-  border-radius: 999px;
+  border-radius: 5px;
 
   background: var(--accent);
   color: #ffffff;
