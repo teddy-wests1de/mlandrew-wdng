@@ -1055,14 +1055,14 @@ button.btn:focus-visible {
 
 footer {
   width: 100%;
-
+  background: var(--accent);
   margin-top: 80px;
   padding: 80px 24px;
 
   border-top: 1px solid var(--border);
 
-  color: var(--text-light);
-
+  color: var(--surface);
+  
   text-align: center;
 }
 
