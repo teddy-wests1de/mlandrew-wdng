@@ -572,6 +572,9 @@ p {
   padding: 0;
 
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-image {
@@ -596,7 +599,7 @@ p {
 }
 
 .couple-names {
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   margin-top: 1rem;
 }
 
