@@ -705,7 +705,7 @@ p {
   width: 100%;
   max-width: var(--content-narrow);
 
-  margin: 80px auto 0;
+  margin: 2rem auto 0;
 
   text-align: center;
 }
@@ -1229,7 +1229,7 @@ footer .logo {
   /* Mobile sections */
 
   section {
-    padding: 70px 18px;
+    padding: 2.5rem 18px;
   }
 
   h1 {
@@ -1280,7 +1280,7 @@ footer .logo {
   }
 
   .story-preview {
-    margin-top: 60px;
+    margin-top: 2.5rem;
   }
 
   .card,
