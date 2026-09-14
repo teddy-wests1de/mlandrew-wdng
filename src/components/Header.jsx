@@ -8,7 +8,7 @@ const Header = () => {
     { label: 'Our Story', href: '#our-story' },
     { label: 'Schedule', href: '#schedule' },
     { label: 'Travel', href: '#travel' },
-    { label: 'Registry', href: '#registry' },
+    { label: 'Gallery', href: '#gallery' },
   ];
 
   useEffect(() => {
