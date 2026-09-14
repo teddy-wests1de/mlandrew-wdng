@@ -601,6 +601,7 @@ p {
 .couple-names {
   font-size: 3.5rem;
   margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero-tagline {
@@ -614,12 +615,12 @@ p {
 }
 
 .hero-date {
-  font-size: 1.8rem;
+  font-size: 1.25rem;
 }
 
 .hero-location {
   font-family: var(--script);
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 
