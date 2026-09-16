@@ -11,7 +11,9 @@ function Gallery() {
           <img src="https://via.placeholder.com/300x200" alt="Gallery Image 1" />
         </div>
       </div>
-      
+      <div className="section-divider">
+        <span className="divider-icon"> ❣️ </span>
+      </div>
     </section>
   );
 }

@@ -4,6 +4,9 @@ import {ChevronDown} from 'lucide-react'
 function Hero() {
   return (
     <section className="hero" id="home">
+      <div className="hero-monogram-watermark">
+        A ❤ M
+      </div>
       <img src={heroImg} alt="Ernie and Berenice" />
       <h1 className="couple-names">Manfred & Berenice</h1>
       <p className="hero-tagline">WE ARE GETTING MARRIED!</p>
@@ -11,12 +14,12 @@ function Hero() {
       <p className="hero-location">Pulse Full Gospel Church, Port Nolloth</p>
       <div className="countdown-wrapper"> <p className="countdown-title"> COUNTDOWN TO OUR WEDDING </p> <div className="countdown"> <div className="countdown-item"> <div className="countdown-number">223</div> <div className="countdown-label">Days</div> </div> <div className="countdown-item"> <div className="countdown-number">10</div> <div className="countdown-label">Hours</div> </div> <div className="countdown-item"> <div className="countdown-number">21</div> <div className="countdown-label">Minutes</div> </div> <div className="countdown-item"> <div className="countdown-number">41</div> <div className="countdown-label">Seconds</div> </div> </div>
       </div>
+      <button className="scroll-down" onClick={() => document .getElementById("our-story") ?.scrollIntoView({ behavior: "smooth" }) } aria-label="Scroll to next section" >
+      <ChevronDown />
+      </button>
       <div className="section-divider">
         <span className="divider-icon"> ❣️ </span>
       </div>
-      <button className="scroll-down" onClick={() => document .getElementById("story") ?.scrollIntoView({ behavior: "smooth" }) } aria-label="Scroll to next section" >
-      <ChevronDown />
-      </button>
     </section>
   )
 }

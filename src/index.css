@@ -212,7 +212,7 @@ a {
 
   font-family: var(--heading);
 
-  font-size: 1rem;
+  font-size: clamp(1.2rem, 2vw, 1rem);
 
   font-weight: 500;
 
@@ -220,7 +220,7 @@ a {
 
   letter-spacing: 0.1em;
 
-  color: var(--text-heading);
+  color: var(--accent);
 
 }
 
@@ -477,7 +477,7 @@ section {
   width: 120px;
   height: 1px;
 
-  margin: 40px auto;
+  margin: 1.25rem auto;
 
   border: 0;
 
@@ -574,7 +574,7 @@ p {
   align-items: center;
   justify-content: center;
 
-  gap: 0.75rem;
+  gap: 1rem;
 
   width: 100%;
 }
@@ -592,6 +592,7 @@ p {
 .divider-icon {
   color: var(--accent);
   font-size: 0.75rem;
+  margin: 0 1rem;
 }
 
 /* ==================================================
@@ -600,14 +601,40 @@ p {
 
 .hero {
   width: min(100%, 700px);
-
+  position: relative;
   margin: 0 auto;
   padding: 0;
-
+  overflow: hidden;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.hero-monogram-watermark {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 18rem;
+    font-weight: 300;
+
+    color: var(--accent);
+
+    opacity: 0.03;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+.hero > *:not(.hero-monogram-watermark) {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-image {
@@ -732,31 +759,32 @@ p {
 }
 
 .scroll-down {
-  margin-top: 1rem;
+  /* margin-top: .5rem; */
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 52px;
-  height: 52px;
+  width: 40px;
+  height: 40px;
 
   border: 1px solid rgba(var(--accent-rgb), 0.3);
   border-radius: 50%;
 
-  background: var(--surface);
+  background: transparent;
   border-color: var(--accent);
 
   color: var(--accent);
   cursor: pointer;
 
   transition: all 0.3s ease;
+  z-index: 1;
 }
 
 .scroll-down:hover {
-  background: var(--accent-dark);
+  background: var(--accent-light);
   border-color: var(--accent);
 
-  transform: translateY(4px);
+  transform: translateY(2px);
 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
@@ -767,6 +795,7 @@ p {
 
   color: var(--accent);
   stroke-width: 2.5;
+  z-index: 100;
 }
 /* ==================================================
    STORY PREVIEW
@@ -1478,11 +1507,11 @@ footer .logo {
   }
 
   .header-logo-monogram {
-    font-size: 1.7rem;
+    font-size: 1.25rem;
   }
 
   .header-logo-subtitle {
-    font-size: 0.48rem;
+    font-size: 0.4rem;
   }
 
   .header-menu-toggle {
@@ -1685,13 +1714,13 @@ footer .logo {
   }
 
   .header-logo-monogram {
-    font-size: 1.55rem;
+    font-size: .8rem;
   }
 
   .header-logo-subtitle {
     font-size: 0.45rem;
 
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
   }
 
   /* .hero {
