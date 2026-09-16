@@ -21,13 +21,14 @@ function Travel() {
         <div className="venue-details">
 
           <h3 className="venue-name">
-            The Bayview Estate
+            Pulse Full Gospel Church Port Nolloth
           </h3>
 
           <p className="venue-address">
-            123 Ocean Drive<br />
-            Camps Bay<br />
-            Cape Town, South Africa
+            Malherbe St<br />
+            Port Nolloth<br />
+            8280<br />
+            South Africa
           </p>
 
         </div>
@@ -47,17 +48,6 @@ function Travel() {
           <p>
             A list of recommended nearby hotels and guesthouses
             will be provided closer to the wedding date.
-          </p>
-
-        </div>
-
-        <div className="travel-item">
-
-          <h3>Airport</h3>
-
-          <p>
-            Cape Town International Airport is approximately
-            30 minutes from the venue.
           </p>
 
         </div>

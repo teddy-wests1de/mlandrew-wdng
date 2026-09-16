@@ -654,8 +654,9 @@ p {
 }
 
 .hero-location {
-  font-family: var(--script);
-  font-size: 1.25rem;
+  /* font-family: var(--script); */
+  font-size: 1rem;
+  margin: .25rem auto 2rem;
 }
 
 
