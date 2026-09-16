@@ -58,11 +58,13 @@ useEffect(() => {
                     <h4>"Every great love story has a beginning."</h4>
                     <p>{story.description}</p>
                 </div>
-
+                <div className="section-divider">
+                    <span className="divider-icon"> ❣️ </span>
+                </div>
+                <p className="story-modal-gallery-title">MOMENTS THAT MADE OUR STORY SPECIAL</p>
                 <div className="story-modal-gallery">
                     <img src={PlaceHolderImage} alt="Gallery Image 1" className="story-modal-gallery-image" />
                 </div>
-
                 <div className="story-modal-timeline">
 
                 </div>

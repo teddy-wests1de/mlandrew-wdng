@@ -33,7 +33,7 @@ const Header = () => {
     <header className="site-header">
       <div className="header-container">
 
-        <a href="#home" className="header-logo-link" aria-label="Alwan and Mey home" >
+        <a href="#home" className="header-logo-link" aria-label="Manfred and Berenice home" >
             
             <span className="header-logo-monogram">
                 <span>M</span>
@@ -44,7 +44,7 @@ const Header = () => {
                 
             </span>
             <span className="header-logo-subtitle">
-                EST. 2026
+                EST. 2023
             </span>
         </a>
 

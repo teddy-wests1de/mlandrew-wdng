@@ -11,8 +11,11 @@ function Hero() {
       <p className="hero-location">Church, Port Nolloth</p>
       <div className="countdown-wrapper"> <p className="countdown-title"> COUNTDOWN TO OUR WEDDING </p> <div className="countdown"> <div className="countdown-item"> <div className="countdown-number">223</div> <div className="countdown-label">Days</div> </div> <div className="countdown-item"> <div className="countdown-number">10</div> <div className="countdown-label">Hours</div> </div> <div className="countdown-item"> <div className="countdown-number">21</div> <div className="countdown-label">Minutes</div> </div> <div className="countdown-item"> <div className="countdown-number">41</div> <div className="countdown-label">Seconds</div> </div> </div>
       </div>
+      <div className="section-divider">
+        <span className="divider-icon"> ❣️ </span>
+      </div>
       <button className="scroll-down" onClick={() => document .getElementById("story") ?.scrollIntoView({ behavior: "smooth" }) } aria-label="Scroll to next section" >
-        <ChevronDown />
+      <ChevronDown />
       </button>
     </section>
   )

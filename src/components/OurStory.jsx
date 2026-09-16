@@ -26,6 +26,9 @@ function OurStory() {
           isOpen={showStoryModal}
           onClose={() => setShowStoryModal(false)}
           story={story} />
+          <div className="section-divider">
+            <span className="divider-icon"> ❣️ </span>
+          </div>
     </section>
 
 )}
