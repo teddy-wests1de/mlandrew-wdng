@@ -461,7 +461,7 @@ a {
 section {
   width: 100%;
 
-  padding: 100px 24px;
+  padding: 3.75rem 1.5rem;
 
   background: var(--bg);
 }
@@ -502,10 +502,10 @@ h1 {
 
   font-family: var(--script);
   font-size: clamp(4rem, 8vw, 6rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1;
 
-  color: var(--text-heading);
+  color: var(--accent);
 
   text-align: center;
 }
@@ -518,7 +518,7 @@ h2 {
   font-weight: 400;
   line-height: 1.15;
 
-  color: var(--text-heading);
+  color: var(--accent);
 
   text-align: center;
 }
@@ -546,7 +546,7 @@ h4 {
 }
 
 p {
-  margin: 0 0 .25rem;
+  margin: 1rem .5rem;
 }
 
 .subtitle {
@@ -607,15 +607,17 @@ p {
 .hero-tagline {
   font-size: 1.25rem;
   letter-spacing: 0.18em;
+  margin: .25rem auto;
 }
 
 .hero-divider {
   width: 55px;
-  margin: 1rem auto;
+  margin: .25rem auto;
 }
 
 .hero-date {
   font-size: 1.25rem;
+  margin: .25rem auto;
 }
 
 .hero-location {
@@ -761,6 +763,135 @@ p {
   margin-right: auto;
   margin-bottom: 28px;
   margin-left: auto;
+}
+
+/* ==================================================
+   STORY MODAL OVERLAY
+================================================== */
+
+.story-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+
+  z-index: 2000;
+}
+
+/* ==================================================
+   STORY MODAL
+================================================== */
+
+.story-modal {
+  width: min(100%, 1000px);
+  height: min(90vh, 1200px);
+
+  background: var(--surface);
+
+  border-radius: 1rem;
+
+  padding: 1rem;
+
+  overflow-y: auto;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+
+  display: grid;
+  /* gap: 2rem; */
+}
+.story-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid #d8d8d8;
+  border-radius: 50%;
+
+  background: #f7f5f2;
+
+  color: #4a4a4a;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+
+.story-modal-close svg {
+  width: 24px;
+  height: 24px;
+
+  stroke-width: 2;
+}
+
+/* ==================================================
+   STORY MODAL TOP BAR
+================================================== */
+.story-modal-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+/* ==================================================
+   TEMP CONTENT
+================================================== */
+
+.story-modal h3 {
+  margin: 0;
+
+  color: var(--heading);
+
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.story-modal p {
+  margin: 1rem .5rem;
+
+  color: var(--text);
+
+  line-height: 1.8;
+
+  max-width: 700px;
+  margin-inline: auto;
+}
+.story-modal h4 {
+  margin: 1rem .5rem;
+
+  color: var(--accent);
+
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  text-align: center;
+}
+
+/* ==================================================
+   SCROLLBAR
+================================================== */
+
+.story-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.story-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.story-modal::-webkit-scrollbar-thumb {
+  background: rgba(var(--accent-rgb), 0.3);
+  border-radius: 999px;
 }
 
 /* ==================================================
@@ -1328,7 +1459,8 @@ footer .logo {
   /* Mobile sections */
 
   section {
-    padding: 2.5rem 18px;
+    padding: 2.5rem 18px 1rem;
+    max-width: var(--content-narrow);
   }
 
   h1 {
@@ -1338,6 +1470,7 @@ footer .logo {
 
   h2 {
     font-size: 2.2rem;
+    margin: 1rem 0;
   }
 
   h3 {
