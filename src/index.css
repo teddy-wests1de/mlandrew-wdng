@@ -1145,8 +1145,8 @@ p {
   width: 100%;
   max-width: var(--content-narrow);
 
-  margin: 3rem auto;
-
+  margin: .5rem auto;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
 
@@ -1168,6 +1168,34 @@ p {
   box-shadow: var(--shadow-sm);
 }
 
+.rsvp-submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+
+  padding: 8px 24px;
+
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+
+  background: var(--accent);
+  color: #ffffff;
+
+  font-family: var(--body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  box-shadow: var(--shadow-button);
+
+  cursor: pointer;
+}
 /* ==================================================
    FORMS
 ================================================== */

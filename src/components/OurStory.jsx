@@ -18,6 +18,9 @@ function OurStory() {
   return (
     <section className="story-preview" id="our-story">
         <h2 className="story-title">Our Love Story</h2>
+        <div className="section-divider">
+          <span className="divider-icon"> ❣️ </span>
+        </div>
         <img src={StoryImage} alt="Manfred and Berenice" className="story-image" />
         <p className="story-text">Our story began in 2023 in Kleinzee, where two people met through a mutual friend, Julia Field — never knowing that this simple introduction would lead to a lifetime together.</p>
         <button className="story-button btn" onClick={() => setShowStoryModal(true)}>READ OUR STORY</button>
@@ -26,9 +29,7 @@ function OurStory() {
           isOpen={showStoryModal}
           onClose={() => setShowStoryModal(false)}
           story={story} />
-          <div className="section-divider">
-            <span className="divider-icon"> ❣️ </span>
-          </div>
+
     </section>
 
 )}

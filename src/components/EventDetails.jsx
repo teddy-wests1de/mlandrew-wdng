@@ -6,7 +6,9 @@ function EventDetails() {
   return <section className="event-details" id="schedule">
     <div className="event-details-header">
       <h2 className="event-details-title">Event Details</h2>
-      
+      <div className="section-divider">
+        <span className="divider-icon"> ❣️ </span>
+      </div>
     </div>
     <div className="event-details-timeline">
       <div className="event-details-item">
@@ -110,9 +112,7 @@ function EventDetails() {
         </div>
 
       </div>
-    <div className="section-divider">
-      <span className="divider-icon"> ❣️ </span>
-    </div>
+    
   </section>    
 }
 

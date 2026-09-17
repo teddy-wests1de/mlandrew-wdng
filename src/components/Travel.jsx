@@ -5,7 +5,9 @@ function Travel() {
       <h2 className="travel-title">
         Venue & Travel
       </h2>
-
+      <div className="section-divider">
+          <span className="divider-icon">❣️</span>
+      </div>
       <p className="travel-description">
         We are so excited to celebrate our special day with you!
         <br />
@@ -65,9 +67,6 @@ function Travel() {
 
         </div>
     
-        <div className="section-divider">
-            <span className="divider-icon">❣️</span>
-        </div>
     </section>
   );
 }

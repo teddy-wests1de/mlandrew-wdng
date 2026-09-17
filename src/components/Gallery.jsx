@@ -2,6 +2,9 @@ function Gallery() {
   return (
     <section className="gallery-section" id="gallery">
       <h2>Gallery</h2>
+      <div className="section-divider">
+        <span className="divider-icon"> ❣️ </span>
+      </div>
       <p>
         A collection of cherished moments captured in photographs, showcasing the love, joy, and celebration of our special day.
       </p>
@@ -11,9 +14,7 @@ function Gallery() {
           <img src="https://via.placeholder.com/300x200" alt="Gallery Image 1" />
         </div>
       </div>
-      <div className="section-divider">
-        <span className="divider-icon"> ❣️ </span>
-      </div>
+
     </section>
   );
 }
