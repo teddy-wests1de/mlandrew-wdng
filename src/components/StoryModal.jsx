@@ -46,7 +46,9 @@ useEffect(() => {
                     <h2 className="story-modal-title">
                         {story.title}
                     </h2>
-
+                    <div className="section-divider">
+                        <span className="divider-icon"> ❣️ </span>
+                    </div>
                 </div>
                 {/* /*Modal Top Bar End ---------------------------*/}
 
@@ -66,9 +68,7 @@ useEffect(() => {
                 <div className="story-modal-timeline">
                     
                 </div>
-                <div className="section-divider">
-                    <span className="divider-icon"> ❣️ </span>
-                </div>
+
                 <div className="story-modal-footer">
 
 
