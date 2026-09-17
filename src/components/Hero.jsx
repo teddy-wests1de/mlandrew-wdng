@@ -38,7 +38,7 @@ function Hero() {
         <span className="divider-icon"> ❣️ </span>
       </div>
       <p className="hero-tagline">WE ARE GETTING MARRIED!</p>
-      <p className="hero-date">Saturday, 19 December, 2026</p>
+      <h4 className="hero-date">Saturday, 19 December, 2026</h4>
       <p className="hero-location">Pulse Full Gospel Church, Port Nolloth</p>
       <div className="countdown-wrapper"> <p className="countdown-title"> COUNTDOWN TO OUR WEDDING </p> <div className="countdown"> <div className="countdown-item"> <div className="countdown-number">{days}</div> <div className="countdown-label">Days</div> </div> <div className="countdown-item"> <div className="countdown-number">{hours}</div> <div className="countdown-label">Hours</div> </div> <div className="countdown-item"> <div className="countdown-number">{minutes}</div> <div className="countdown-label">Minutes</div> </div> <div className="countdown-item"> <div className="countdown-number">{seconds}</div> <div className="countdown-label">Seconds</div> </div> </div>
       </div>
