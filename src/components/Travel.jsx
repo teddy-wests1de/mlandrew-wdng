@@ -9,7 +9,7 @@ function Travel() {
       <p className="travel-description">
         We are so excited to celebrate our special day with you!
         <br />
-        For those traveling from out of town, we have compiled a list of recommended accommodations and transportation options to make your stay as comfortable as possible.
+      To help you prepare for the celebration, we've included some useful information about the venue, travel, and getting around on the day.
       </p>
 
       <div className="venue-card">

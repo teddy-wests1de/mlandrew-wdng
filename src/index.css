@@ -461,7 +461,7 @@ a {
 section {
   width: 100%;
 
-  padding: 3.75rem 1.5rem;
+  padding: 3rem 1.5rem;
 
   background: var(--bg);
 }
@@ -494,7 +494,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--text-heading);
+  color: var(--accent);
 }
 
 h1 {
@@ -542,13 +542,13 @@ h4 {
   font-weight: 500;
   line-height: 1.25;
 
-  color: var(--text-heading);
+  color: var(--accent);
 }
 
 p {
   /* margin: 1rem .5rem; */
   max-width: 640px;
-
+  text-align: center;
   margin-right: auto;
   margin-bottom: 28px;
   margin-left: auto;
@@ -725,9 +725,9 @@ p {
 
   text-align: center;
 
-  color: white;
+  color: var(--surface);
 
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
 
   letter-spacing: 0.2em;
@@ -840,7 +840,7 @@ p {
   align-items: center;
   justify-content: center;
 
-  padding: 2rem;
+  padding: 1rem;
 
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(8px);
@@ -858,7 +858,7 @@ p {
 
   background: var(--surface);
 
-  border-radius: 1rem;
+  border-radius: .5rem;
 
   padding: 1rem;
 
@@ -908,9 +908,9 @@ p {
   gap: 1rem;
 }
 
-.story-modal-gallery-title {
-  font-size: 0.75rem;
-  color: var(--accent-dark);
+.story-modal-title {
+  text-align: center;
+  margin: 2rem auto;
 }
 
 /* ==================================================
@@ -938,14 +938,15 @@ p {
 }
 .story-modal h4 {
   margin: 1rem .5rem;
-
-  color: var(--accent);
-
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  text-transform: uppercase;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   text-align: center;
 }
 
-
+.story-modal-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
 
 /* ==================================================
    SCROLLBAR
@@ -1072,7 +1073,7 @@ p {
   width: 100%;
   max-width: var(--content-narrow);
 
-  margin: 60px auto;
+  margin: 3rem auto;
 
   display: flex;
   flex-direction: column;
@@ -1088,6 +1089,35 @@ p {
 
   color: var(--text-heading);
 }
+
+.directions-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+
+  padding: 8px 24px;
+
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+
+  background: var(--accent);
+  color: #ffffff;
+
+  font-family: var(--body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  box-shadow: var(--shadow-button);
+
+  cursor: pointer;
+}
 /* ==================================================
    GALLERY
 ================================================== */
@@ -1095,7 +1125,7 @@ p {
   width: 100%;
   max-width: var(--content-narrow);
 
-  margin: 60px auto;
+  margin: 3rem auto;
 
   display: flex;
   flex-direction: column;
@@ -1115,7 +1145,7 @@ p {
   width: 100%;
   max-width: var(--content-narrow);
 
-  margin: 60px auto;
+  margin: 3rem auto;
 
   display: flex;
   flex-direction: column;
@@ -1271,13 +1301,27 @@ button.btn:focus-visible {
 /* ==================================================
    VENUE CARD
 ================================================== */
+.venue-details {
+  width: 100%;
+  max-width: var(--content-narrow);
 
+  margin: 2rem auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1rem;
+}
 .venue-card {
   width: 100%;
   max-width: var(--content-narrow);
 
-  margin: 60px auto;
-
+  margin: 4rem auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
 
   background: var(--surface);
