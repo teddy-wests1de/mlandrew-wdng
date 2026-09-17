@@ -34,6 +34,9 @@ function Hero() {
       </div>
       <img src={heroImg} alt="Ernie and Berenice" />
       <h1 className="couple-names">Manfred & Berenice</h1>
+      <div className="section-divider">
+        <span className="divider-icon"> ❣️ </span>
+      </div>
       <p className="hero-tagline">WE ARE GETTING MARRIED!</p>
       <p className="hero-date">Saturday, 19 December, 2026</p>
       <p className="hero-location">Pulse Full Gospel Church, Port Nolloth</p>
@@ -42,9 +45,6 @@ function Hero() {
       <button className="scroll-down" onClick={() => document .getElementById("our-story") ?.scrollIntoView({ behavior: "smooth" }) } aria-label="Scroll to next section" >
       <ChevronDown />
       </button>
-      <div className="section-divider">
-        <span className="divider-icon"> ❣️ </span>
-      </div>
     </section>
   )
 }
