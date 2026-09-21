@@ -38,7 +38,7 @@ const Header = () => {
         <a href="#home" className="header-logo-link" aria-label="Manfred and Berenice home" >
             
             <span className="header-logo-monogram">
-                <span>M</span>
+                <span>E</span>
                 <span className="art">
                 ♡
                 </span>

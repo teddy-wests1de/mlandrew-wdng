@@ -33,7 +33,7 @@ function Hero() {
         A ❤ M
       </div>
       <img src={heroImg} alt="Ernie and Berenice" />
-      <h1 className="couple-names">Manfred & Berenice</h1>
+      <h1 className="couple-names">Ernie & Berenice</h1>
       <div className="section-divider">
         <span className="divider-icon"> ❣️ </span>
       </div>

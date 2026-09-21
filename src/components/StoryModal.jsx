@@ -27,7 +27,7 @@ useEffect(() => {
                 <div className="story-modal-top-bar">
 
                     <div className="story-modal-logo">
-                        M&B
+                        E&B
                     </div>
 
                     <div className="story-modal-label">
