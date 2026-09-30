@@ -1171,6 +1171,18 @@ p {
 
   box-shadow: var(--shadow-sm);
 }
+.rsvp-card-illustration {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem 0;
+}
+.rsvp-card-illustration img {
+  width: 32px;
+  height: 32px;
+
+  margin-right: 12px;
+}
 
 .rsvp-submit-button {
   display: inline-flex;
@@ -1199,6 +1211,91 @@ p {
   box-shadow: var(--shadow-button);
 
   cursor: pointer;
+}
+
+
+.verified-invitation {
+  background: var(--accent);
+  border-radius: .5rem;
+  padding: 48px 32px;
+  text-align: center;
+  color: var(--surface-soft);
+}
+
+.verified-invitation-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.verified-invitation-label {
+  margin: 0 0 12px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: var(--surface-soft);
+}
+
+.verified-invitation-title {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--surface-soft);
+}
+
+.verified-invitation-divider {
+  margin: 20px 0;
+  color: #F8F5F0;
+}
+
+.verified-invitation-message {
+  max-width: 420px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+  color: var(--surface-soft);
+}
+
+.verified-invitation-button {
+display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 45px;
+
+  padding: 12px 24px;
+
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+
+  background: var(--surface-soft);
+  color: var(--accent);
+
+  font-family: var(--body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  box-shadow: var(--shadow-button);
+
+  cursor: pointer;
+}
+
+.rsvp-error {
+  margin-bottom: 16px;
+  color: #9b3b3b;
+  font-size: 14px;
+  text-align: center;
 }
 /* ==================================================
    FORMS
