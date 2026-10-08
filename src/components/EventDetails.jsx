@@ -1,4 +1,4 @@
-import { Camera, Music, ReceiptPoundSterling, Utensils, Wine } from "lucide-react";
+import { Camera, ChurchIcon, Music, ReceiptPoundSterling, Utensils, Wine } from "lucide-react";
 
 function EventDetails() {
 //   if (!event) return null;  
@@ -14,7 +14,7 @@ function EventDetails() {
       <div className="event-details-item">
 
         <div className="event-details-icon">
-          <ReceiptPoundSterling />
+          <ChurchIcon />
         </div>
 
         <div className="event-details-content">
