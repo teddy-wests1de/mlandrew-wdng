@@ -244,8 +244,9 @@ function Rsvp() {
 
           <div className="rsvp-card-illustration">
 
-            {whatsappIcon}
-
+            <img
+              src={whatsappIcon}
+              alt="WhatsApp Number" />
             <span className="rsvp-card-illustration-text">
               WhatsApp Number
             </span>
