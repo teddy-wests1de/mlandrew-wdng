@@ -34,6 +34,10 @@ function Travel() {
           </p>
 
         </div>
+        <div className="venue-map">
+
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2783.062670331952!2d16.874120195837694!3d-29.259100629906964!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1c38b95b1ad8a2ff%3A0x48cc9905ef694e18!2sPulse%20Full%20Gospel%20Church%20Port%20Nolloth!5e1!3m2!1sen!2sza!4v1791457063764!5m2!1sen!2sza" width="600" height="450" style={{ border: 0 }} allowFullscreen="" loading="lazy" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
 
         <button className="directions-button btn">
           Get Directions
