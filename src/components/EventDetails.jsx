@@ -28,11 +28,11 @@ function EventDetails() {
           </div>
 
           <div className="event-details-location">
-            St. Mary's Church
+            Pulse Full Gospel Church
           </div>
 
           <div className="event-details-city">
-            Cape Town
+            Port Nolloth
           </div>
 
         </div>
