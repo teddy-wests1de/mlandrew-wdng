@@ -1,12 +1,19 @@
-import { supabase } from '../lib/supabase';
 import { useState } from 'react';
+import { supabase } from '../lib/supabase';
+import whatsappIcon from '../assets/images/whatsapp-svg.svg';
 
 function Rsvp() {
   const [whatsappNumber, setWhatsappNumber] = useState('');
   const [rsvpCode, setRsvpCode] = useState('');
+
   const [loading, setLoading] = useState(false);
   const [guest, setGuest] = useState(null);
   const [error, setError] = useState('');
+
+  const [responseLoading, setResponseLoading] = useState(false);
+  const [responseStatus, setResponseStatus] = useState(null);
+  const [responseError, setResponseError] = useState('');
+  const [showInvitation, setShowInvitation] = useState(false);
 
   function normalizeSouthAfricanNumber(value) {
     let number = value.replace(/\D/g, '');
@@ -32,6 +39,8 @@ function Rsvp() {
     setLoading(true);
     setError('');
     setGuest(null);
+    setResponseStatus(null);
+    setResponseError('');
 
     const normalizedNumber =
       normalizeSouthAfricanNumber(whatsappNumber);
@@ -58,7 +67,7 @@ function Rsvp() {
     }
 
     try {
-      console.log('Sending to Supabase:', {
+      console.log('Sending verification to Supabase:', {
         whatsappNumber: normalizedNumber,
         rsvpCode: normalizedCode,
       });
@@ -69,11 +78,11 @@ function Rsvp() {
           p_rsvp_code: normalizedCode,
         });
 
-      console.log('Supabase response:', data);
+      console.log('Supabase verification response:', data);
 
       if (supabaseError) {
         console.error(
-          'Supabase RSVP error:',
+          'Supabase RSVP verification error:',
           supabaseError
         );
 
@@ -118,13 +127,106 @@ function Rsvp() {
     }
   };
 
+  const handleRsvpResponse = async (status) => {
+    setResponseLoading(true);
+    setResponseError('');
+
+    const normalizedNumber =
+      normalizeSouthAfricanNumber(whatsappNumber);
+
+    const normalizedCode =
+      rsvpCode.trim().toUpperCase();
+
+    if (!normalizedNumber || !normalizedCode) {
+      setResponseError(
+        'Your invitation details are no longer available. Please verify your invitation again.'
+      );
+
+      setResponseLoading(false);
+      return;
+    }
+
+    try {
+      console.log('Submitting RSVP response:', {
+        whatsappNumber: normalizedNumber,
+        rsvpCode: normalizedCode,
+        status,
+      });
+
+      const { data, error: supabaseError } =
+        await supabase.rpc('submit_rsvp_response', {
+          p_whatsapp_number: normalizedNumber,
+          p_rsvp_code: normalizedCode,
+          p_rsvp_status: status,
+        });
+
+      console.log('Supabase RSVP submission response:', data);
+
+      if (supabaseError) {
+        console.error(
+          'Supabase RSVP submission error:',
+          supabaseError
+        );
+
+        setResponseError(
+          'Something went wrong while saving your RSVP response.'
+        );
+
+        return;
+      }
+
+      if (data !== true) {
+        console.log('RSVP response submission FAILED');
+
+        setResponseError(
+          'We could not save your RSVP response. Please try again.'
+        );
+
+        return;
+      }
+
+      console.log(
+        'RSVP response saved successfully:',
+        status
+      );
+
+      setResponseStatus(status);
+
+    } catch (err) {
+      console.error(
+        'Unexpected RSVP submission error:',
+        err
+      );
+
+      setResponseError(
+        'Something went wrong while saving your response. Please try again.'
+      );
+
+    } finally {
+      setResponseLoading(false);
+    }
+  };
+
+  const handleStartOver = () => {
+    setWhatsappNumber('');
+    setRsvpCode('');
+    setGuest(null);
+    setError('');
+    setResponseStatus(null);
+    setResponseError('');
+  };
+
   return (
     <section id="rsvp" className="rsvp-section">
 
-      <h2 className="rsvp-title">RSVP</h2>
+      <h2 className="rsvp-title">
+        RSVP
+      </h2>
 
       <div className="section-divider">
-        <span className="divider-icon">❣️</span>
+        <span className="divider-icon">
+          ❣️
+        </span>
       </div>
 
       <p>
@@ -142,7 +244,7 @@ function Rsvp() {
 
           <div className="rsvp-card-illustration">
 
-            <img src="src\assets\images\whatsapp-svg.svg" alt="WhatsApp" />
+            {whatsappIcon}
 
             <span className="rsvp-card-illustration-text">
               WhatsApp Number
@@ -162,9 +264,10 @@ function Rsvp() {
                 className="rsvp-input"
                 placeholder="Enter your WhatsApp number (e.g. 082 123 4567)"
                 value={whatsappNumber}
-                onChange={(e) =>
-                  setWhatsappNumber(e.target.value)
+                onChange={(event) =>
+                  setWhatsappNumber(event.target.value)
                 }
+                disabled={loading}
               />
 
             </div>
@@ -176,9 +279,10 @@ function Rsvp() {
                 className="rsvp-input"
                 placeholder="Enter your RSVP code"
                 value={rsvpCode}
-                onChange={(e) =>
-                  setRsvpCode(e.target.value)
+                onChange={(event) =>
+                  setRsvpCode(event.target.value)
                 }
+                disabled={loading}
               />
 
             </div>
@@ -207,38 +311,221 @@ function Rsvp() {
 
         <div className="verified-invitation">
 
-          <div className="verified-invitation-icon">
-            ✓
-          </div>
+          {!responseStatus ? (
 
-          <p className="verified-invitation-label">
-            INVITATION VERIFIED
+            <>
+
+              <div className="verified-invitation-icon">
+                ✓
+              </div>
+
+              <p className="verified-invitation-label">
+                INVITATION VERIFIED
+              </p>
+
+              <h3 className="verified-invitation-title">
+                Welcome, {guest.first_name}
+              </h3>
+
+              <div className="verified-invitation-divider">
+                ❣️
+              </div>
+
+              <p className="verified-invitation-message">
+                We're delighted to celebrate our special day
+                with you.
+              </p>
+
+              <p className="verified-invitation-question">
+                Will you be joining us?
+              </p>
+
+              {responseError && (
+                <div className="rsvp-response-error">
+                  {responseError}
+                </div>
+              )}
+
+              <div className="rsvp-response-actions">
+
+                <button
+                  type="button"
+                  className="rsvp-accept-button"
+                  disabled={responseLoading}
+                  onClick={() =>
+                    handleRsvpResponse('accepted')
+                  }
+                >
+                  {responseLoading
+                    ? 'SAVING RESPONSE...'
+                    : "YES, I'LL BE THERE"}
+                </button>
+
+                <button
+                  type="button"
+                  className="rsvp-decline-button"
+                  disabled={responseLoading}
+                  onClick={() =>
+                    handleRsvpResponse('declined')
+                  }
+                >
+                  SORRY, I CAN'T MAKE IT
+                </button>
+
+              </div>
+
+            </>
+
+          ) : responseStatus === 'accepted' ? (
+
+  !showInvitation ? (
+
+    <>
+
+      <div className="verified-invitation-icon">
+        ✓
+      </div>
+
+      <p className="verified-invitation-label">
+        RSVP CONFIRMED
+      </p>
+
+      <h3 className="verified-invitation-title">
+        We can't wait to see you, {guest.first_name}!
+      </h3>
+
+      <div className="verified-invitation-divider">
+        ❣️
+      </div>
+
+      <p className="verified-invitation-message">
+        Your attendance has been confirmed.
+        Thank you for responding to our invitation.
+      </p>
+
+      <button
+        type="button"
+        className="verified-invitation-button"
+        onClick={() => setShowInvitation(true)}
+      >
+        VIEW MY INVITATION
+      </button>
+
+    </>
+
+      ) : (
+
+        <div className="guest-invitation">
+
+          <p className="guest-invitation-label">
+            YOU'RE INVITED
           </p>
 
-          <h3 className="verified-invitation-title">
-            Welcome, {guest.first_name}
+          <h3 className="guest-invitation-heading">
+            Dear {guest.first_name}
           </h3>
 
           <div className="verified-invitation-divider">
             ❣️
           </div>
 
-          <p className="verified-invitation-message">
-            We're delighted to celebrate our special day with you.
+          <p className="guest-invitation-text">
+            Together with our families, we would be delighted
+            to have you join us as we celebrate our wedding.
+          </p>
+
+          <div className="guest-invitation-details">
+
+            <div className="guest-invitation-detail">
+
+              <span className="guest-invitation-detail-label">
+                DATE
+              </span>
+
+              <strong>
+                19 December 2026
+              </strong>
+
+            </div>
+
+            <div className="guest-invitation-detail">
+
+              <span className="guest-invitation-detail-label">
+                TIME
+              </span>
+
+              <strong>
+                15:00
+              </strong>
+
+            </div>
+
+            <div className="guest-invitation-detail">
+
+              <span className="guest-invitation-detail-label">
+                VENUE
+              </span>
+
+              <strong>
+                Pulse Full Gospel Church, Port Nolloth
+              </strong>
+
+            </div>
+
+          </div>
+
+          <p className="guest-invitation-footer">
+            We look forward to celebrating this special day with you.
           </p>
 
           <button
             type="button"
             className="verified-invitation-button"
-            onClick={() => {
-              console.log(
-                'View invitation clicked:',
-                guest
-              );
-            }}
+            onClick={() => setShowInvitation(false)}
           >
-            VIEW MY INVITATION
+            BACK
           </button>
+
+        </div>
+
+        )
+
+      ) : (
+
+            <>
+
+              <div className="verified-invitation-icon">
+                ✓
+              </div>
+
+              <p className="verified-invitation-label">
+                RESPONSE RECEIVED
+              </p>
+
+              <h3 className="verified-invitation-title">
+                Thank you, {guest.first_name}
+              </h3>
+
+              <div className="verified-invitation-divider">
+                ❣️
+              </div>
+
+              <p className="verified-invitation-message">
+                We're sorry you won't be able to join us,
+                but we appreciate you letting us know.
+              </p>
+
+              <button
+                type="button"
+                className="verified-invitation-button"
+                onClick={handleStartOver}
+              >
+                CLOSE
+              </button>
+
+            </>
+
+          )}
 
         </div>
 

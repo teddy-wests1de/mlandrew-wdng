@@ -1,4 +1,4 @@
-import { Music, ReceiptPoundSterling, Utensils, Wine } from "lucide-react";
+import { Camera, Music, ReceiptPoundSterling, Utensils, Wine } from "lucide-react";
 
 function EventDetails() {
 //   if (!event) return null;  
@@ -41,27 +41,27 @@ function EventDetails() {
 
       <div className="event-details-item">
 
-        <div className="event-details-icon">
-          <Wine />
+      <div className="event-details-icon">
+        <Camera />
+      </div>
+
+      <div className="event-details-content">
+
+        <div className="event-details-time">
+          16:30
         </div>
 
-        <div className="event-details-content">
+        <div className="event-details-title">
+          PHOTO SESSION
+        </div>
 
-          <div className="event-details-time">
-            16:30
-          </div>
-
-          <div className="event-details-title">
-            COCKTAIL HOUR
-          </div>
-
-          <div className="event-details-location">
-            Ocean View Terrace
-          </div>
-
+        <div className="event-details-location">
+          Wedding Photos
         </div>
 
       </div>
+
+    </div>
 
       <div className="event-details-item">
 
