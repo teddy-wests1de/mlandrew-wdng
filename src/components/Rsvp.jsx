@@ -232,93 +232,154 @@ function Rsvp() {
   };
 
   const handleRsvpResponse = async (status) => {
-    setResponseLoading(true);
-    setResponseError('');
+  setResponseLoading(true);
+  setResponseError('');
 
-    const normalizedNumber =
-      normalizeSouthAfricanNumber(whatsappNumber);
+  try {
+    const rememberToken =
+      localStorage.getItem('wedding_guest_token');
 
-    const normalizedCode =
-      rsvpCode.trim().toUpperCase();
+    let data;
+    let supabaseError;
 
-    if (!normalizedNumber || !normalizedCode) {
-      setResponseError(
-        'Your invitation details are no longer available. Please verify your invitation again.'
+
+    // -----------------------------------------
+    // RETURNING / REMEMBERED GUEST
+    // -----------------------------------------
+
+    if (rememberToken) {
+
+      console.log(
+        'Submitting RSVP using remember token'
       );
 
-      setResponseLoading(false);
-      return;
+      const response = await supabase.rpc(
+        'submit_rsvp_response_by_token',
+        {
+          p_remember_token: rememberToken,
+          p_rsvp_status: status,
+        }
+      );
+
+      data = response.data;
+      supabaseError = response.error;
+
     }
 
-    try {
-      console.log('Submitting RSVP response:', {
-        whatsappNumber: normalizedNumber,
-        rsvpCode: normalizedCode,
-        status,
-      });
 
-      const { data, error: supabaseError } =
-        await supabase.rpc('submit_rsvp_response', {
-          p_whatsapp_number: normalizedNumber,
-          p_rsvp_code: normalizedCode,
-          p_rsvp_status: status,
-        });
+    // -----------------------------------------
+    // NEWLY VERIFIED GUEST
+    // -----------------------------------------
 
-      console.log('Supabase RSVP submission response:', data);
+    else {
 
-      if (supabaseError) {
-        console.error(
-          'Supabase RSVP submission error:',
-          supabaseError
-        );
+      const normalizedNumber =
+        normalizeSouthAfricanNumber(whatsappNumber);
+
+      const normalizedCode =
+        rsvpCode.trim().toUpperCase();
+
+      if (!normalizedNumber || !normalizedCode) {
 
         setResponseError(
-          'Something went wrong while saving your RSVP response.'
-        );
-
-        return;
-      }
-
-      if (data !== true) {
-        console.log('RSVP response submission FAILED');
-
-        setResponseError(
-          'We could not save your RSVP response. Please try again.'
+          'Your invitation details are no longer available. Please verify your invitation again.'
         );
 
         return;
       }
 
       console.log(
-        'RSVP response saved successfully:',
-        status
+        'Submitting RSVP using invitation details'
       );
 
-      setResponseStatus(status);
+      const response = await supabase.rpc(
+        'submit_rsvp_response',
+        {
+          p_whatsapp_number: normalizedNumber,
+          p_rsvp_code: normalizedCode,
+          p_rsvp_status: status,
+        }
+      );
 
-    } catch (err) {
+      data = response.data;
+      supabaseError = response.error;
+    }
+
+
+    // -----------------------------------------
+    // SUPABASE ERROR
+    // -----------------------------------------
+
+    if (supabaseError) {
+
       console.error(
-        'Unexpected RSVP submission error:',
-        err
+        'Supabase RSVP submission error:',
+        supabaseError
       );
 
       setResponseError(
-        'Something went wrong while saving your response. Please try again.'
+        'Something went wrong while saving your RSVP response.'
       );
 
-    } finally {
-      setResponseLoading(false);
+      return;
     }
-  };
 
-  const handleStartOver = () => {
-    setWhatsappNumber('');
-    setRsvpCode('');
-    setGuest(null);
-    setError('');
-    setResponseStatus(null);
-    setResponseError('');
-  };
+
+    // -----------------------------------------
+    // UPDATE FAILED
+    // -----------------------------------------
+
+    if (data !== true) {
+
+      console.log(
+        'RSVP response submission FAILED'
+      );
+
+      setResponseError(
+        'We could not save your RSVP response. Please try again.'
+      );
+
+      return;
+    }
+
+
+    // -----------------------------------------
+    // SUCCESS
+    // -----------------------------------------
+
+    console.log(
+      'RSVP response saved successfully:',
+      status
+    );
+
+    setResponseStatus(status);
+
+  } catch (err) {
+
+    console.error(
+      'Unexpected RSVP submission error:',
+      err
+    );
+
+    setResponseError(
+      'Something went wrong while saving your response. Please try again.'
+    );
+
+  } finally {
+
+    setResponseLoading(false);
+
+  }
+};
+
+  // const handleStartOver = () => {
+  //   setWhatsappNumber('');
+  //   setRsvpCode('');
+  //   setGuest(null);
+  //   setError('');
+  //   setResponseStatus(null);
+  //   setResponseError('');
+  // };
 
   return (
     <section id="rsvp" className="rsvp-section">
