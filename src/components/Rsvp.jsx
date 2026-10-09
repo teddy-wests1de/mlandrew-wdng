@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import whatsappIcon from '../assets/images/whatsapp-svg.svg';
 
@@ -14,6 +14,84 @@ function Rsvp() {
   const [responseStatus, setResponseStatus] = useState(null);
   const [responseError, setResponseError] = useState('');
   const [showInvitation, setShowInvitation] = useState(false);
+
+  useEffect(() => {
+
+  const restoreGuest = async () => {
+
+    const rememberToken =
+      localStorage.getItem('wedding_guest_token');
+
+    if (!rememberToken) {
+      return;
+    }
+
+    try {
+
+      console.log(
+        'Restoring remembered RSVP guest...'
+      );
+
+      const { data, error: restoreError } =
+        await supabase.rpc('restore_rsvp_access', {
+          p_remember_token: rememberToken,
+        });
+
+      if (restoreError) {
+
+        console.error(
+          'RSVP restore error:',
+          restoreError
+        );
+
+        localStorage.removeItem(
+          'wedding_guest_token'
+        );
+
+        return;
+      }
+
+      if (!data || data.length === 0) {
+
+        console.log(
+          'Remembered RSVP guest no longer valid'
+        );
+
+        localStorage.removeItem(
+          'wedding_guest_token'
+        );
+
+        return;
+      }
+
+      const restoredGuest = data[0];
+
+      console.log(
+        'RSVP guest restored:',
+        restoredGuest
+      );
+
+      setGuest(restoredGuest);
+
+      setResponseStatus(
+        restoredGuest.rsvp_status
+      );
+
+    } catch (err) {
+
+      console.error(
+        'Unexpected RSVP restore error:',
+        err
+      );
+
+    }
+
+  };
+
+  restoreGuest();
+
+}, []);
+
 
   function normalizeSouthAfricanNumber(value) {
     let number = value.replace(/\D/g, '');
@@ -103,6 +181,15 @@ function Rsvp() {
         return;
       }
 
+      // const verifiedGuest = data[0];
+
+      // console.log(
+      //   'RSVP verification SUCCESS:',
+      //   verifiedGuest
+      // );
+
+      // setGuest(verifiedGuest);
+
       const verifiedGuest = data[0];
 
       console.log(
@@ -111,6 +198,23 @@ function Rsvp() {
       );
 
       setGuest(verifiedGuest);
+
+      setResponseStatus(
+        verifiedGuest.rsvp_status
+      );
+
+      if (verifiedGuest.remember_token) {
+
+        localStorage.setItem(
+          'wedding_guest_token',
+          verifiedGuest.remember_token
+        );
+
+        console.log(
+          'Guest remember token saved'
+        );
+
+      }
 
     } catch (err) {
       console.error(
@@ -516,13 +620,13 @@ function Rsvp() {
                 but we appreciate you letting us know.
               </p>
 
-              <button
+              {/* <button
                 type="button"
                 className="verified-invitation-button"
                 onClick={handleStartOver}
               >
                 CLOSE
-              </button>
+              </button> */}
 
             </>
 

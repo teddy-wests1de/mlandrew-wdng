@@ -1875,9 +1875,9 @@ display: inline-flex;
 
 .rsvp-decline-button {
   background: transparent;
-  color: #4C4B46;
+  color: var(--surface-soft);
 
-  border: 1px solid rgba(76, 75, 70, 0.45);
+  border: 1px solid var(--surface-soft);
 }
 
 .rsvp-decline-button:hover:not(:disabled) {
