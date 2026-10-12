@@ -725,10 +725,10 @@ p {
 /* =============*==================================*=
    HERO TEXT
 ===================*============================== */
-*.couple-names {
-  margin: 1rem aut* 0.5rem;
+.couple-names {
+  margin: 1rem auto 0.5rem;
 
-  font-family: var(--scr*pt);
+  font-family: var(--script);
   font-size: 4.5rem;
   font-weight: 600;
   line-height: 1;
