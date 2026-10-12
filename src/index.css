@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Lora:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Story+Script&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap');
 
 /* ==================================================
    ALWAN & MEY WEDDING DESIGN SYSTEM
@@ -37,12 +38,12 @@
 
   /* Typography */
   --body: "Lora", Georgia, serif;
-  --heading: "Cormorant Garamond", Georgia, serif;
-  --script: "Story Script", cursive;
+  --heading: "Roboto Flex", sans-serif;
+  --script: "Italianno", cursive;
 
   /* Layout */
   --container: 1160px;
-  --content-narrow: 760px;
+  --content-narrow: 860px;
 }
 
 /* ==================================================
@@ -501,8 +502,8 @@ h1 {
   margin: 0 0 20px;
 
   font-family: var(--script);
-  font-size: clamp(4rem, 8vw, 6rem);
-  font-weight: 600;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 800;
   line-height: 1;
 
   color: var(--accent);
@@ -514,7 +515,7 @@ h2 {
   margin: 0 0 10px;
 
   font-family: var(--script);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(2.5rem, 4vw, 5.5rem);
   font-weight: 400;
   line-height: 1.15;
 
@@ -527,8 +528,8 @@ h3 {
   margin: 0 0 0.75rem;
 
   font-family: var(--heading);
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 400;
   line-height: 1.2;
 
   color: var(--text-heading);
@@ -595,101 +596,168 @@ p {
   margin: 0 1rem;
 }
 
-/* ==================================================
+/* ============================*=====================
    HERO
-================================================== */
+====*==================================*========== */
 
 .hero {
-  width: min(100%, 700px);
   position: relative;
-  margin: 0 auto;
-  padding: 0;
+  isolation: isolate;
   overflow: hidden;
-  text-align: center;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  width: min(100%, 860px);
+  margin: 0 auto;
+  padding: 0;
+
+  background: var(--bg);
+  text-align: center;
 }
 
-.hero-monogram-watermark {
-    position: absolute;
 
-    top: 50%;
-    left: 50%;
+/* ==========*==================================*====
+   HERO FLORAL BACKGROUND
+===*==================================*=========== */
 
-    transform: translate(-50%, -50%);
+.hero-floral-background {
+  position: absolute;
+  inset: 0;
 
-    font-size: 18rem;
-    font-weight: 300;
-
-    color: var(--accent);
-
-    opacity: 0.03;
-
-    white-space: nowrap;
-
-    pointer-events: none;
-
-    z-index: 0;
-}
-.hero > *:not(.hero-monogram-watermark) {
-    position: relative;
-    z-index: 1;
-}
-
-.hero-image {
   width: 100%;
-
-  margin-bottom: 40px;
+  height: 100%;
 
   overflow: hidden;
 
-  border-radius: var(--radius-lg);
+  z-index: 0;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-background {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center top;
+  opacity: 1;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* =*==================================*=============
+   HERO FOREGROUND E*EMENTS
+===========================*====================== */
+
+.hero-monogram-watermark,
+.hero-image,
+.couple-names,
+.hero .section-divider,*.hero-tagline,
+.hero-date,
+.hero-location,
+.countdown-wrapper,
+.scroll-down {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ==================*===============================
+  *HERO MONOGRAM
+====================*============================= */
+
+.hero-monogram-watermark {
+  position: absolute;
+
+  top: 50%;
+  left: 0%;
+
+  transform: translate(-50%, 50%);
+
+  font-family: var(--heading);
+  font-size: 18rem;
+  font-weight: 300;
+
+  color: var(--accent);
+
+ opacity: 0.03;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* =================*================================
+ * HERO PHOTO
+======================*=========================== */
+
+.hero-image {
+  display: block;
+
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 4 / 3;
+
+  margin: 1rem 0;
+
+  object-fit: cover;
+  object-position: center;
+
+  /* border-radius: 0.25rem; */
 
   box-shadow: var(--shadow);
 }
 
-.hero-image img {
-  width: 100%;
-  height: auto;
 
-  display: block;
+/* =============*==================================*=
+   HERO TEXT
+===================*============================== */
+*.couple-names {
+  margin: 1rem aut* 0.5rem;
 
-  object-fit: cover;
+  font-family: var(--scr*pt);
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 1;
+  font-style: bold;
+
+  color: var(--accent);
 }
 
-.couple-names {
-  font-size: 3.2rem;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
 .hero .section-divider {
-  /* width: 120px; */
-  margin: .25rem auto;
+  margin: 0.25rem auto;
 }
 
 .hero-tagline {
+  margin: 0.25rem auto;
+
   font-size: 1.25rem;
   letter-spacing: 0.18em;
-  margin: .25rem auto;
-}
-
-.hero-divider {
-  width: 55px;
-  margin: .25rem auto;
 }
 
 .hero-date {
+  margin: 0.25rem auto;
+
   font-size: 1.25rem;
-  margin: .25rem auto;
 }
 
 .hero-location {
-  /* font-family: var(--script); */
+  margin: 0.25rem auto 0.5rem;
   font-size: 1rem;
-  margin: .25rem auto .5rem;
 }
-
 
 
 /* ==================================================
@@ -924,9 +992,9 @@ p {
 .story-modal h3 {
   margin: 0;
 
-  color: var(--heading);
+  color: var(--accent);
 
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.4rem, 4vw, 3rem);
   text-align: center;
 }
 
@@ -1021,11 +1089,8 @@ p {
 
 .event-details-header .event-details-title {
   margin: 0 0 1rem;
-
   color: #6585B0;
-
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 400;
+  /* font-weight: 400; */
 }
 
 
@@ -1149,8 +1214,6 @@ p {
   margin: 0 0 0.75rem;
 
   color: #4C4B46;
-
-  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.1rem;
   line-height: 1.4;
@@ -1217,11 +1280,6 @@ p {
   .event-details-header {
     margin-bottom: 3.5rem;
   }
-
-  .event-details-header .event-details-title {
-    font-size: 2.4rem;
-  }
-
 
   /* Vertical timeline */
 
@@ -1315,8 +1373,6 @@ p {
 
   .event-details-item .event-details-title {
     margin-bottom: 0.45rem;
-
-    font-size: 0.8rem;
   }
 
 
@@ -1351,7 +1407,7 @@ p {
   margin-bottom: 1rem;
   text-align: center;
   font-family: var(--heading);
-  font-size: 2rem;
+  font-size: 1.25rem;
   line-height: 1.2;
 
   color: var(--text-heading);
@@ -1774,7 +1830,7 @@ p {
 
 .verified-invitation-title {
   margin: 0;
-  font-size: 36px;
+  font-size: 1.2rem;
   font-weight: 400;
   color: var(--surface-soft);
 }
@@ -1913,7 +1969,7 @@ display: inline-flex;
   font-size: 2.5rem;
   font-weight: 400;
 
-  color: #4C4B46;
+  color: var(--surface);
 }
 
 .guest-invitation-text {
@@ -1923,7 +1979,7 @@ display: inline-flex;
   font-size: 1rem;
   line-height: 1.8;
 
-  color: #4C4B46;
+  color: var(--surface);
 }
 
 .guest-invitation-details {
@@ -1971,7 +2027,7 @@ display: inline-flex;
   font-style: italic;
   line-height: 1.7;
 
-  color: #4C4B46;
+  color: var(--surface);
 }
 
 @media (max-width: 600px) {
@@ -2508,27 +2564,106 @@ footer .logo {
   }
 
   h2 {
-    font-size: 2.2rem;
+    /* font-size: 3.2rem; */
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
     margin: 1rem 0;
+    font-weight: bolder;
   }
 
   h3 {
     font-size: 1.7rem;
   }
 
-  .hero {
-    width: min(100%, 850px);
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 
-    padding: 50px 0 70px;
-  }
+  width: 95%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.hero-floral-background {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+.hero-background {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
 
   .hero-image {
-    margin-bottom: 30px;
+    width: 100%;
+    max-width: none;
+    height: auto;
 
-    border-radius: 20px;
+    margin: 1rem 0 1.5rem;
+
+    /* border-radius: 1rem; */
   }
+
+.hero-monogram-watermark {
+  z-index: 1;
+  font-size: 9rem;
+}
+
+.couple-names,
+.hero .section-divider,
+.hero-tagline,
+.hero-date,
+.hero-location,
+.countdown-wrapper,
+.scroll-down {
+  position: relative;
+  z-index: 2;
+}
+/* Floral layer behind everything */
+
+
+
+/* Floral image itself */
+
+.hero-background {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* Everything already in your hero */
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+  /* Existing Hero content */
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+ 
   .couple-names {
-    font-size: 2.4rem;
+    font-size: 3.4rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
   }
@@ -2538,8 +2673,6 @@ footer .logo {
 
   .countdown {
     margin: .5rem auto;
-    /* padding: 1rem .5rem; */
-
     grid-template-columns: repeat(2, 1fr);
 
     gap: 24px 16px;
@@ -2647,20 +2780,6 @@ footer .logo {
 
 
 @media (max-width: 768px) {
-  .hero {
-    padding: 0;
-  }
-
-  .hero-image {
-    width: 100%;
-    height: 65vh;
-    object-fit: cover;
-    display: block;
-  }
-
-  .hero-content {
-    padding: 2rem 1.5rem;
-  }
 
   .countdown {
   display: grid;

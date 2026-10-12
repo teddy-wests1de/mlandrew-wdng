@@ -1,3 +1,4 @@
+import Floralwreath from '../assets/images/floral-svg-bg.png'
 import heroImg from '../assets/images/gallery-img-1.jpeg'
 import {ChevronDown} from 'lucide-react'
 import {useState, useEffect} from 'react'
@@ -29,14 +30,18 @@ function Hero() {
 
   return (
     <section className="hero" id="home">
+      <div className="hero-floral-background">
+        <img src={Floralwreath} alt="" className="hero-background" />
+      </div>
       <div className="hero-monogram-watermark">
         A ❤ M
       </div>
-      <img src={heroImg} alt="Ernie and Berenice" />
       <h1 className="couple-names">Ernie & Berenice</h1>
       <div className="section-divider">
         <span className="divider-icon"> ❣️ </span>
       </div>
+      <img src={heroImg} alt="Ernie and Berenice" className='hero-image'/>
+
       <p className="hero-tagline">WE ARE GETTING MARRIED!</p>
       <h4 className="hero-date">Saturday, 19 December, 2026</h4>
       <p className="hero-location">Pulse Full Gospel Church, Port Nolloth</p>
