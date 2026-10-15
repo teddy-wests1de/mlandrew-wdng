@@ -151,7 +151,7 @@ a {
   margin: 0;
   padding: 0;
 
-  background: rgba(248, 245, 239, 0.35);
+  background: rgba(248, 245, 239, 0.75);
 
   border-bottom: 1px solid var(--header-border);
 
