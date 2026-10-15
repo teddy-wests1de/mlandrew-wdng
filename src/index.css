@@ -1877,7 +1877,7 @@ display: inline-flex;
 }
 
 .verified-invitation-question {
-  margin: 0 0 1.5rem;
+  margin: 0 auto 28px;
 
   color: #4C4B46;
    text-align: center;
