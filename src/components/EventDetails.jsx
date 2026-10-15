@@ -20,7 +20,7 @@ function EventDetails() {
         <div className="event-details-content">
 
           <div className="event-details-time">
-            15:00
+            14:00
           </div>
 
           <div className="event-details-title">
@@ -48,7 +48,7 @@ function EventDetails() {
       <div className="event-details-content">
 
         <div className="event-details-time">
-          16:30
+          15:30
         </div>
 
         <div className="event-details-title">
@@ -72,7 +72,7 @@ function EventDetails() {
         <div className="event-details-content">
 
           <div className="event-details-time">
-            18:00
+            17:00
           </div>
 
           <div className="event-details-title">
