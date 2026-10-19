@@ -80,9 +80,11 @@ function EventDetails() {
           </div>
 
           <div className="event-details-location">
-            The Bayview Estate
+            Drop In Centre
           </div>
-
+          <div className="event-details-city">
+            Port Nolloth
+          </div>
         </div>
 
         </div>
