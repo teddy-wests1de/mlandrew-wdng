@@ -6,6 +6,11 @@ import gallery03 from '../assets/images/gallery/gallery-img-4.jpeg';
 import gallery04 from '../assets/images/gallery/gallery-img-5.jpeg';
 import gallery05 from '../assets/images/gallery/gallery-img-6.jpeg';
 import gallery06 from '../assets/images/gallery/gallery-img-7.jpeg';
+import gallery07 from '../assets/images/gallery/gallery-img-8.jpeg';
+import gallery08 from '../assets/images/gallery/gallery-img-9.jpeg';
+import gallery09 from '../assets/images/gallery/gallery-img-10.jpeg';
+import gallery10 from '../assets/images/gallery/gallery-img-11.jpeg';
+
 
 function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -34,6 +39,22 @@ function Gallery() {
     {
       src: gallery06,
       alt: 'Gallery photo 6',
+    },
+    {
+      src: gallery07,
+      alt: 'Gallery photo 7',
+    },
+    {
+      src: gallery08,
+      alt: 'Gallery photo 8',
+    },
+    {
+      src: gallery09,
+      alt: 'Gallery photo 9',
+    },
+    {
+      src: gallery10,
+      alt: 'Gallery photo 10',
     },
   ];
 

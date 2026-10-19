@@ -189,7 +189,11 @@ function StoryModal({ isOpen, onClose, story }) {
 
             <div className="story-modal-chapter-divider">
             </div>
-
+            <p>
+              More than three years later, Ernie can still make Berenice laugh like no one else, and their love continues to grow through every season, every adventure, and every moment they share.
+              What started with a phone number, a bold prediction, and a little bit of fate has brought them to this beautiful chapter — saying “I do.”
+              We can’t wait to share our love story with you and celebrate this special day surrounded by the people we love most ❤️
+            </p>
             <p>
               Somewhere between ordinary days, shared
               adventures and unforgettable moments,
